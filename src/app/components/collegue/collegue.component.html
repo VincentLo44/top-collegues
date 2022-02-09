@@ -1,0 +1,11 @@
+<div class="card-body">
+  <div *ngIf="paramCollegue" class="text-center">
+    <img src="{{ paramCollegue.photoUrl }}" alt="pikachu">
+    <h3 class="text-primary">{{ paramCollegue.pseudo }}</h3>
+    <p>{{ paramCollegue.score }}</p>
+    <app-avis (avisEvt)="traiterAvis($event)"
+      [actifAimer]="paramCollegue.score >= 1000"
+      [actifDetester]="paramCollegue.score <= -1000">
+    </app-avis>
+  </div>
+</div>
