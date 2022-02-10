@@ -10,8 +10,9 @@ export class AvisComponent implements OnInit {
 
   @Output() avisEvt = new EventEmitter<Avis>();
 
-  @Input() actifAimer: boolean = false;
-  @Input() actifDetester: boolean = false;
+  // pas nécessaire de mettre le type quand on initialise
+  @Input() actifAimer = false;
+  @Input() actifDetester = false;
 
   constructor() { }
 
