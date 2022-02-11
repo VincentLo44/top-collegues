@@ -1,12 +1,16 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-md-8">
+      <app-nouveau-collegue-template-form></app-nouveau-collegue-template-form>
+    </div>
+    <hr class="m-2">
     <div class="col-md-6">
-      <button class="btn btn-lg btn-outline-dark m-2" (click)="rafraichir()">
+      <button class="btn btn-lg btn-outline-dark m-2" (click)="actualiser()">
         Actualiser
       </button>
       <app-liste-collegues></app-liste-collegues>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" style="border-left: 2px solid rgb(183, 153, 212);">
       <app-historique-votes></app-historique-votes>
     </div>
   </div>

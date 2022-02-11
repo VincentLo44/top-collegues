@@ -1,5 +1,17 @@
 <div class="row d-flex align-content-center">
-  <div class="col-md-6" *ngFor="let unCollegue of listeCollegues">
-    <app-collegue [paramCollegue]="unCollegue"></app-collegue>
-  </div>
+  <ng-container *ngIf="listeCollegues | async as listeCollegues; else colAbsent">
+
+    <p *ngIf="listeCollegues.length === 0">
+      Aucune donnée !
+    </p>
+    <app-collegue *ngFor="let unCollegue of listeCollegues" [paramCollegue]="unCollegue"></app-collegue>
+
+  </ng-container>
+
+  <ng-template #colAbsent>
+    <p>
+      Chargement...
+    </p>
+  </ng-template>
 </div>
+

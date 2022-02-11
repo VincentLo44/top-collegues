@@ -1,6 +1,7 @@
 import { DataService } from './../../services/data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Collegue } from 'src/app/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-liste-collegues',
@@ -9,18 +10,15 @@ import { Collegue } from 'src/app/models';
 })
 export class ListeColleguesComponent implements OnInit {
 
-  listeCollegues: Collegue[] = [];
+  listeCollegues!: Observable<Collegue[]>;
 
   constructor(private dataService: DataService) {
-    const obsCollegues = this.dataService.listerCollegues();
-    obsCollegues.subscribe(
-      data => {
-        this.listeCollegues = data;
-      }
-    );
+
   }
 
   ngOnInit(): void {
+    this.listeCollegues = this.dataService.abonnerFluxTabCollegues();
+    this.dataService.rafraichirListeCollegues();
   }
 
 }

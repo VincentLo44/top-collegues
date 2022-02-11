@@ -16,8 +16,8 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  rafraichir() {
-    window.location.reload();
+  actualiser() {
+    this.dataService.rafraichirListeCollegues();
   }
 
 }

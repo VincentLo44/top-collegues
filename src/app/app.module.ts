@@ -9,6 +9,11 @@ import { ListeColleguesComponent } from './components/liste-collegues/liste-coll
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { HistoriqueVotesComponent } from './components/historique-votes/historique-votes.component';
+import { NouveauCollegueTemplateFormComponent } from './components/nouveau-collegue-template-form/nouveau-collegue-template-form.component';
+import { FormsModule } from '@angular/forms';
+import { RafraichirComponent } from './components/rafraichir/rafraichir.component';
+import { NomPrenomValidatorDirective } from './validators/nom-prenom-validator.directive';
+import { PseudoValidatorDirective } from './validators/pseudo-validator.directive';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,16 @@ import { HistoriqueVotesComponent } from './components/historique-votes/historiq
     ListeColleguesComponent,
     AccueilComponent,
     ScorePipe,
-    HistoriqueVotesComponent
+    HistoriqueVotesComponent,
+    NouveauCollegueTemplateFormComponent,
+    RafraichirComponent,
+    NomPrenomValidatorDirective,
+    PseudoValidatorDirective
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

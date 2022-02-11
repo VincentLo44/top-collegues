@@ -1,0 +1,55 @@
+<div class="col-md-8">
+  <h2 class="title" style="color: rgb(45, 45, 122);">Ajouter un nouveau collègue</h2>
+
+  <form #etatForm="ngForm" appNomPrenomValidator>
+
+    <div class="form-group">
+      <label for="pseudo">
+        Pseudo
+      </label>
+      <input #etatPseudo="ngModel" [(ngModel)]="newCollegue.pseudo" type="text" class="form-control" name="pseudo"
+        required appPseudoValidator/>
+      <p *ngIf="etatPseudo.dirty && etatPseudo.invalid" class="text-danger">
+        Le pseudo est requis
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="nom">
+        Nom
+      </label>
+      <input #etatNom="ngModel" [(ngModel)]="newCollegue.nom" type="text" class="form-control" name="nom" required
+        minlength="2" />
+      <p *ngIf="etatNom.dirty && etatNom.invalid" class="text-danger">
+        Nom invalide : Il faut plus de 2 caractères
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="prenom">
+        Prénom
+      </label>
+      <input #etatPrenom="ngModel" [(ngModel)]="newCollegue.prenom" type="text" class="form-control" name="prenom"
+        required minlength="2" />
+      <p *ngIf="etatPrenom.dirty && etatPrenom.invalid" class="text-danger">
+        Prénom invalide : Il faut plus de 2 caractères
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="photo">
+        Photo URL
+      </label>
+      <input #etatPhoto="ngModel" [(ngModel)]="newCollegue.photo" type="url" class="form-control" name="photo"
+        required />
+      <p *ngIf="etatPhoto.dirty && etatPhoto.invalid" class="text-danger">
+        L'url de la photo est requise
+      </p>
+    </div>
+
+    <button [disabled]="etatForm.invalid" type="submit" class="btn btn-outline-success my-2" (click)="valider()">
+      Ajouter
+    </button>
+
+  </form>
+</div>

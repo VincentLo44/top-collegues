@@ -5,6 +5,13 @@ export interface Collegue {
   avis: number
 }
 
+export interface CollegueForm {
+  pseudo: string,
+  nom: string,
+  prenom: string,
+  photo: string
+}
+
 export enum Avis {
   AIMER,
   DETESTER
