@@ -26,13 +26,13 @@ export class CollegueComponent implements OnInit {
         this.dataService
           .donnerUnAvis(this.paramCollegue.pseudo, avis)
           .subscribe(vote => {
-            this.paramCollegue!.score = this.paramCollegue!.score + 100;
+            this.paramCollegue = vote;
           });
       } else {
         this.dataService
           .donnerUnAvis(this.paramCollegue.pseudo, avis)
           .subscribe(vote => {
-            this.paramCollegue!.score = this.paramCollegue!.score - 100;
+            this.paramCollegue = vote;
           });
       }
       this.affichageBtn();
