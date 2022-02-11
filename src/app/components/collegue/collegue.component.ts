@@ -1,3 +1,4 @@
+import { DataService } from './../../services/data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Collegue, Avis } from 'src/app/models';
 
@@ -13,17 +14,26 @@ export class CollegueComponent implements OnInit {
   btnAimerInactif = false;
   btnDetesterInactif = false;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.affichageBtn();
   }
 
   traiterAvis(avis: Avis) {
     if (this.paramCollegue) {
       if (avis == Avis.AIMER) {
-        this.paramCollegue.score = this.paramCollegue.score + 100;
+        this.dataService
+          .donnerUnAvis(this.paramCollegue.pseudo, avis)
+          .subscribe(vote => {
+            this.paramCollegue!.score = this.paramCollegue!.score + 100;
+          });
       } else {
-        this.paramCollegue.score = this.paramCollegue.score - 100;
+        this.dataService
+          .donnerUnAvis(this.paramCollegue.pseudo, avis)
+          .subscribe(vote => {
+            this.paramCollegue!.score = this.paramCollegue!.score - 100;
+          });
       }
       this.affichageBtn();
     }

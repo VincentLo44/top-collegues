@@ -1,11 +1,16 @@
 export interface Collegue {
   pseudo: string,
   score: number,
-  photoUrl: string,
+  photo: string,
   avis: number
 }
 
 export enum Avis {
   AIMER,
   DETESTER
+}
+
+export interface Vote {
+  collegue: Collegue,
+  avis: Avis
 }

@@ -1,3 +1,4 @@
+import { DataService } from './../../services/data.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Collegue } from 'src/app/models';
 
@@ -10,9 +11,13 @@ export class AccueilComponent implements OnInit {
 
   @Input() listeCollegues?: Collegue[];
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  rafraichir() {
+    window.location.reload();
   }
 
 }
