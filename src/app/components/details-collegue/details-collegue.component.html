@@ -1,0 +1,15 @@
+<div class="card m-2 d-flex align-content-center justify-content-center">
+  <div class="card-body" style="max-width: 15rem;">
+    <div class="text-center">
+      <img src="{{ currentCollegue.photo }}" alt="Photo de personne" width="100px">
+      <h3 class="text-primary">{{ currentCollegue.pseudo | uppercase }}</h3>
+      <p>{{ currentCollegue.score | score }}</p>
+      <div>
+        <label for="nom">Nom : </label> {{ currentCollegue.nom }}
+      </div>
+      <div>
+        <label for="prenom">Prénom : </label> {{ currentCollegue.prenom }}
+      </div>
+    </div>
+  </div>
+</div>

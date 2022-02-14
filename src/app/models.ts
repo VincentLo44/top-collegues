@@ -12,6 +12,14 @@ export interface CollegueForm {
   photo: string
 }
 
+export interface CollegueDetails {
+  pseudo: string,
+  score: number,
+  nom: string,
+  prenom: string,
+  photo: string
+}
+
 export enum Avis {
   AIMER,
   DETESTER

@@ -1,4 +1,4 @@
-import { Avis, Vote, CollegueForm } from './../models';
+import { Avis, Vote, CollegueForm, CollegueDetails } from './../models';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, Observable, Subject } from 'rxjs';
@@ -53,6 +53,10 @@ export class DataService {
 
   getPseudoCollegue(pseudo: string) : Observable<Collegue> {
     return this.http.get<Collegue>(`${this.apiUrl}/collegues/${pseudo}`);
+  }
+
+  getCollegueByPseudo(pseudo: string) : Observable<CollegueDetails> {
+    return this.http.get<CollegueDetails>(`${this.apiUrl}/collegues/${pseudo}`);
   }
 
 

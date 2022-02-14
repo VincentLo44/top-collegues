@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { RafraichirComponent } from './components/rafraichir/rafraichir.component';
 import { NomPrenomValidatorDirective } from './validators/nom-prenom-validator.directive';
 import { PseudoValidatorDirective } from './validators/pseudo-validator.directive';
+import { MenuComponent } from './components/menu/menu.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DetailsCollegueComponent } from './components/details-collegue/details-collegue.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +30,15 @@ import { PseudoValidatorDirective } from './validators/pseudo-validator.directiv
     NouveauCollegueTemplateFormComponent,
     RafraichirComponent,
     NomPrenomValidatorDirective,
-    PseudoValidatorDirective
+    PseudoValidatorDirective,
+    MenuComponent,
+    DetailsCollegueComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

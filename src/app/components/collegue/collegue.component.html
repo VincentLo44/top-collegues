@@ -3,7 +3,9 @@
     <div class="card-body" style="max-width: 15rem;">
       <div class="text-center">
         <img src="{{ paramCollegue.photo }}" alt="Photo de personne" width="100px">
-        <h3 class="text-primary">{{ paramCollegue.pseudo | uppercase }}</h3>
+        <a routerLink="/details/{{ paramCollegue.pseudo }}" class="text-decoration-none">
+          <h3 class="text-primary">{{ paramCollegue.pseudo | uppercase }}</h3>
+        </a>
         <p>{{ paramCollegue.score | score }}</p>
         <app-avis (avisEvt)="traiterAvis($event)" [actifAimer]="btnAimerInactif" [actifDetester]="btnDetesterInactif">
         </app-avis>
