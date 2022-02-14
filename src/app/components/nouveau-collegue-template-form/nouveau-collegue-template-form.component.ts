@@ -16,17 +16,26 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
     photo: ''
   };
 
+  messageOk?: string;
+  errorMessage?: string;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
   valider() {
+    this.messageOk = undefined;
+    this.errorMessage = undefined;
+
     this.dataService
     .creerCollegue(this.newCollegue)
-    .subscribe(newCollegue => {
-      this.newCollegue = newCollegue;
-      this.dataService.rafraichirListeCollegues();
+    .subscribe({
+      next: () => {
+        this.messageOk = "Collègue créé";
+        this.dataService.rafraichirListeCollegues();
+      },
+      error: () => this.errorMessage = "Oups, il y a eu un problème"
     });
   }
 

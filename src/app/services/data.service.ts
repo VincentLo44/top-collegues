@@ -9,25 +9,25 @@ import { Collegue } from '../models';
 })
 export class DataService {
 
-  apiUrl = 'https://formation-angular-collegues.herokuapp.com/api/v1/';
+  apiUrl = 'https://formation-angular-collegues.herokuapp.com/api/v1';
 
   private busTabCollegues = new Subject<Collegue[]>();
 
   constructor(private http: HttpClient) { }
 
   listerCollegues() : Observable<Collegue[]> {
-    return this.http.get<Collegue[]>(this.apiUrl + "collegues");
+    return this.http.get<Collegue[]>(this.apiUrl + "/collegues");
   }
 
   donnerUnAvis(pseudo: string, avis: Avis) : Observable<Collegue> {
-    return this.http.post<Collegue>(this.apiUrl + "votes", {
+    return this.http.post<Collegue>(this.apiUrl + "/votes", {
       pseudo,
       avis
     });
   }
 
   listerVotes() : Observable<Vote[]> {
-    return this.http.get<Vote[]>(this.apiUrl + "votes");
+    return this.http.get<Vote[]>(this.apiUrl + "/votes");
   }
 
   abonnerFluxTabCollegues(): Observable<Collegue[]> {
@@ -43,7 +43,7 @@ export class DataService {
   }
 
   creerCollegue(collegue: CollegueForm) : Observable<CollegueForm> {
-    return this.http.post<CollegueForm>(this.apiUrl + "collegues", {
+    return this.http.post<CollegueForm>(this.apiUrl + "/collegues", {
       pseudo: collegue.pseudo,
       nom: collegue.nom,
       prenom: collegue.prenom,
@@ -52,7 +52,7 @@ export class DataService {
   }
 
   getPseudoCollegue(pseudo: string) : Observable<Collegue> {
-    return this.http.get<Collegue>(this.apiUrl + "collegues/pseudo");
+    return this.http.get<Collegue>(`${this.apiUrl}/collegues/${pseudo}`);
   }
 
 
